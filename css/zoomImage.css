@@ -1,0 +1,37 @@
+
+.zoom-small-image-container{
+	overflow: hidden;
+	position: relative;
+	max-width: 500px;
+}
+.zoom-small-image-container img{
+	border: 0;
+	display: block;
+	width: 100%;
+}
+.zoom-big-image-container{
+	position: absolute;
+	overflow: hidden;
+	width: 500px;
+	border: 1px solid #777;
+	z-index: 100;
+}
+.zoom-big-image-container img{
+	position: absolute;	
+	z-index: 101;	
+}
+.zoom-shadow{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	/*opacity: 0;			*/
+	opacity: 0.7;			
+}
+.zoom-cursor{
+	position: absolute;
+	border: 1px solid #777;
+}
+

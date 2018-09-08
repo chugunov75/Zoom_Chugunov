@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Zoom effect demo</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/zoomImage.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Эффект увеличения поверх основного изображения</h2>
+		<div class="row clearfix">
+			<div class="col col-md-50">
+				<div class="zoom-small-image-container" data-image-src="images/tesla_big_img_1.jpg">
+					<img src="images/tesla_small_img_1.jpg" alt="">
+				</div>
+			</div>
+			<div class="col col-md-50">
+				<div class="zoom-small-image-container" data-image-src="images/tesla_big_img_2.jpg">
+					<img src="images/tesla_small_img_2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<h2>Эффект увеличения в дополнительном элементе с использованием перекрывающего слоя</h2>
+		<div class="row clearfix">
+			<div class="col col-md-50">
+				<div class="zoom-small-image-container" data-image-src="images/tesla_big_img_1.jpg">
+					<img src="images/tesla_small_img_1.jpg" alt="">
+				</div>
+			</div>
+			<div class="col col-md-50">
+				<div class="zoom-small-image-container" data-image-src="images/tesla_big_img_2.jpg">
+					<img src="images/tesla_small_img_2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<h2>Эффект увеличения в дополнительном элементе без использования перекрывающего слоя</h2>
+		<div class="row clearfix">
+			<div class="col col-md-50">
+				<div class="zoom-small-image-container" data-image-src="images/tesla_big_img_1.jpg">
+					<img src="images/tesla_small_img_1.jpg" alt="">
+				</div>
+			</div>
+			<div class="col col-md-50">
+				<div class="zoom-small-image-container" data-image-src="images/tesla_big_img_2.jpg">
+					<img src="images/tesla_small_img_2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<h3>Использование в HTML</h3>
+		<p>
+			Изображение должно быть помещено в элемент "div" с классом "zoom-small-image-container" и атрибутом "data-image-src", содержащим адрес большего изображения. Плагин использует собственне стили, поэтому они также должны быть подключены. Пример подключения в HTML:
+		</p>
+		<div class="img-container">
+			<img src="images/imgForDocs/insert.png" alt="">
+		</div>
+		<p>
+			Пример подключения в скрипте:
+		</p>
+		<div class="img-container">
+			<img src="images/imgForDocs/connection.png" alt="">
+		</div>
+		<h3>Настройка плагина</h3>
+		<ul>
+			<li><strong>scale</strong> - кратность увеличения; должен быть больше 1; значение по-умолчанию 4;</li>
+			<li>
+				<strong>innerZoom</strong> - параметр, определяющий где будет размещено увеличенное изображение: при innerZoom==true - там же где и исходное, 
+				иначе - рядом с ним; значение по-умолчанию true;
+			</li>
+			<li>
+				<strong>shadow</strong> - параметр, определяющий будет ли использоваться перекрывающий слой над исходным изображением;
+				значение по-умолчанию true (будет использоваться); при innerZoom==true игнорируется;
+			</li>
+			<li>
+				<strong>cssWidth</strong> - параметр, определяющий будет ли использоваться заданная в стилях ширина для 
+				дополнительного элемента с увеличенным изображением;
+				значение по-умолчанию false (в этом случае ширина для дополнительного элемента 
+				будет задана как наибольшее из значений ширины и высоты исходного изображения); при innerZoom==true игнорируется;
+			</li>
+		</ul>
+		<div class="img-container">
+			<img src="images/imgForDocs/options.png" alt="">
+		</div>
+	</div>
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/jquery.zoomImage.js"></script>
+	<script>
+		'use strict';
+		 $(document).ready(function(){
+
+		 	$('.zoom-small-image-container').each(function(index,elem){
+		 		if(index<2){
+		 			$(elem).zoomImage({scale: 5});
+		 		}
+		 		else if(index<4){
+		 			$(elem).zoomImage({innerZoom:false, scale: 5});
+		 		}
+		 		else{
+		 			$(elem).zoomImage({innerZoom:false,shadow: false,scale: 5});
+		 		}
+		 	});
+
+		 });
+		 
+	</script>
+</body>
+</html>
